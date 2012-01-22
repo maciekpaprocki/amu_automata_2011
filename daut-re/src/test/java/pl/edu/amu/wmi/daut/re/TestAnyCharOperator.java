@@ -9,7 +9,7 @@ import pl.edu.amu.wmi.daut.re.AnyCharOperator.Factory;
 /**
  * Test klasy AnycharOperator.
  */
-public class TestAnyCharOperator extends TestsCase {
+public class TestAnyCharOperator extends TestCase {
 /**
 * Test konstruktora AnyCharOperator.
 */
