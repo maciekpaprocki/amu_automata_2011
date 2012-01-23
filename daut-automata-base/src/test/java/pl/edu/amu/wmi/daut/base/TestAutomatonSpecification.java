@@ -1274,65 +1274,23 @@ public class TestAutomatonSpecification extends TestCase {
         assertEquals(spec4.maxWordLength(), 1);
     }
     // test metody tworzącej dla podanego automatu automat z dokładnie 1 stanem końcowym
-    public final void testmakeOneFinalStateAutomaton() {
-    
-        public final void testmakeOneFinalStateAutomatonTwo(){
-        NaiveAutomatonSpecification spec = new NaiveAutomatonSpecification();
-        //dla automatu z wieloma stanami końcowymi
-        State q0 = spec.addState();
-        State q1 = spec.addState();
-        State q2 = spec.addState();
-        State q3 = spec.addState();
-        State q4 = spec.addState();
-        spec.markAsInitial(q0);
-         spec.markAsFinal(q2);
-        spec.markAsFinal(q4);
-        spec.addTransition(q0, q1, new CharTransitionLabel('a'));
-        spec.addTransition(q1, q2, new CharTransitionLabel('b'));
-        spec.addTransition(q2, q3, new CharTransitionLabel('a'));
-        spec.addTransition(q3, q4, new CharTransitionLabel('b'));
-     
-        assertEqual(allFinalStates.size(makeOneFinalStateAutomaton()),1);
-        }
-        public final void testmakeOneFinalStateAutomatonOne(){
-        NaiveAutomatonSpecification spec = new NaiveAutomatonSpecification();
-    //z jednym stanem końcowym
-        State q0 = spec.addState();
-        State q1 = spec.addState();
-        State q2 = spec.addState();
-        State q3 = spec.addState();
-        State q4 = spec.addState();
-        spec.markAsInitial(q0);
-        spec.markAsFinal(q4);
-        spec.addTransition(q0, q1, new CharTransitionLabel('a'));
-        spec.addTransition(q1, q2, new CharTransitionLabel('b'));
-        spec.addTransition(q2, q3, new CharTransitionLabel('a'));
-        spec.addTransition(q3, q4, new CharTransitionLabel('b'));
-        spec.addTransition(q2, q3, new CharTransitionLabel('a'));
-        spec.addTransition(q3, q4, new CharTransitionLabel('b'));
-        assertEqual(allFinalStates.size(makeOneFinalStateAutomaton()),1)
-    
-        }
+   /* public final void testMakeOneFinalStateAutomaton() {
+        NaiveAutomatonSpecification spec1 = new NaiveAutomatonSpecification();
+        State q0 = spec1.addState();
+        State q1 = spec1.addState();
+        State q2 = spec1.addState();
+        spec1.addTransition(q0, q1, new EpsilonTransitionLabel());
+        spec1.addTransition(q1, q2, new EpsilonTransitionLabel());
+        spec1.markAsInitial(q0);
         
-        public final void testmakeOneFinalStateAutomatonZero(){
-        NaiveAutomatonSpecification spec = new NaiveAutomatonSpecification();
-        //bez stanu końcowego
-        State q0 = spec.addState();
-        State q1 = spec.addState();
-        State q2 = spec.addState();
-        State q3 = spec.addState();
-        State q4 = spec.addState();
-        spec.markAsInitial(q0);
-        spec.addTransition(q0, q1, new CharTransitionLabel('a'));
-        spec.addTransition(q1, q2, new CharTransitionLabel('b'));
-        spec.addTransition(q2, q3, new CharTransitionLabel('a'));
-        spec.addTransition(q3, q4, new CharTransitionLabel('b'));
-        spec.addTransition(q2, q3, new CharTransitionLabel('a'));
-        spec.addTransition(q3, q4, new CharTransitionLabel('b'));
-        assertEqual(allFinalStates.size(makeOneFinalStateAutomaton()),1)
-    
-        }
-    }
-     
-     
+        int g=0;
+        for (State someState : spec1.allStates()) {
+            g++;
+            if (spec1.isFinal(someState)) {
+                i=i+1;
+            }
+        assertEquals(g,100);
+        
+                }
+                }*/    
 }
