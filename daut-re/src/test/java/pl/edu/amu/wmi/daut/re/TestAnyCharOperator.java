@@ -7,7 +7,7 @@ import junit.framework.TestCase;
 import pl.edu.amu.wmi.daut.re.AnyCharOperator.Factory;
 
 /**
- * Test klasy AnycharOperator.
+ * Test klasy AnycharOperator
  */
 public class TestAnyCharOperator extends TestCase {
 /**
