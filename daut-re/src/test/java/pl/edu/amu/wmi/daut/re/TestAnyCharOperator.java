@@ -26,8 +26,6 @@ public final void testcreateFixedAutomaton() {
                 new NondeterministicAutomatonByThompsonApproach(spec2.createFixedAutomaton());
 
         assertFalse(automaton2.accepts("ala"));
-        assertTrue(automaton2.accepts("m"));
-        assertTrue(automaton2.accepts("a"));
         assertFalse(automaton2.accepts("kota"));
         assertFalse(automaton2.accepts("kot"));
         assertFalse(automaton2.accepts("ma"));
