@@ -41,7 +41,7 @@ public final void testcreateFixedAutomaton() {
      */
     public final void testFactory() {
         Factory factory = new Factory();
-        ArrayList<Char> params = new ArrayList<Char>();
+        ArrayList<String> params = new ArrayList<String>();
         assertEquals(factory.createOperator(params).getClass(),
                 new AnyCharOperator().getClass());
     }
