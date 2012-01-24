@@ -12,18 +12,18 @@ import pl.edu.amu.wmi.daut.base.NaiveAutomatonSpecification;
 */
 public class CarriageReturnOperator extends NullaryRegexpOperator {
 
- /**
-  * Metoda budująca automat.
-  */
+        /**
+        * Metoda budująca automat.
+        */
         public AutomatonSpecification createFixedAutomaton() {
             return new
                NaiveAutomatonSpecification().makeOneTransitionAutomaton('\13');
-    }
+        }
 
-/**
-* Fabryka operatora.
-*/
-public static class Factory extends NullaryRegexpOperatorFactory {
+    /**
+    * Fabryka operatora.
+    */
+    public static class Factory extends NullaryRegexpOperatorFactory {
 
         @Override
         public int numberOfParams() {
