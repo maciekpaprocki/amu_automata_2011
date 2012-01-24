@@ -45,5 +45,44 @@ public class GrammarUtils {
         }
         return true;
     }
+
+
+    public boolean isRightLinear(Grammar g){
+        List<GrammarRule> rules = g.allRules();
+        for (GrammarRule rule : rules) {
+            int i = 1;
+            int arity = rule.getArity();
+            for (GrammarSymbol symbol : rule.getRhsSymbols()) {
+                if ((symbol.isTerminalSymbol()) && !(i == arity)) {
+                    return false;
+                }
+                if (!(symbol.isTerminalSymbol()) && (i == arity)) {
+                    return false;
+                }
+                i++;
+            }
+        }
+        return true;
+    }
+
+    public boolean isLeftLinear(Grammar g){
+        List<GrammarRule> rules = g.allRules();
+        for (GrammarRule rule : rules) {
+            if ((rule.getRhsFirstSymbol().isTerminalSymbol())) {
+                int terminalSymbols = 0;
+                for (GrammarSymbol symbol : rule.getRhsSymbols()) {
+                    if (symbol.isTerminalSymbol()) {
+                        terminalSymbols++;
+                    }
+                }
+                    if (terminalSymbols > 1) {
+                        return false;
+                    }
+            } else {
+                return false;
+            }
+        }
+        return true;
+    }
 }
 
