@@ -47,16 +47,16 @@ public class GrammarUtils {
     }
 
 
-    public boolean isRightLinear(Grammar g){
+    public static boolean isRightLinear(Grammar g){
         List<GrammarRule> rules = g.allRules();
         for (GrammarRule rule : rules) {
             int i = 1;
             int arity = rule.getArity();
             for (GrammarSymbol symbol : rule.getRhsSymbols()) {
-                if ((symbol.isTerminalSymbol()) && !(i == arity)) {
+                if (!(symbol.isTerminalSymbol()) && !(i == arity)) {
                     return false;
                 }
-                if (!(symbol.isTerminalSymbol()) && (i == arity)) {
+                if ((symbol.isTerminalSymbol()) && (i == arity)) {
                     return false;
                 }
                 i++;
@@ -65,20 +65,28 @@ public class GrammarUtils {
         return true;
     }
 
-    public boolean isLeftLinear(Grammar g){
+    public static boolean isLeftLinear(Grammar g){
         List<GrammarRule> rules = g.allRules();
         for (GrammarRule rule : rules) {
             if ((rule.getRhsFirstSymbol().isTerminalSymbol())) {
-                int terminalSymbols = 0;
+                int NonTerminalSymbols = 0;
                 for (GrammarSymbol symbol : rule.getRhsSymbols()) {
-                    if (symbol.isTerminalSymbol()) {
-                        terminalSymbols++;
+                    if (!symbol.isTerminalSymbol()) {
+                        NonTerminalSymbols++;
                     }
                 }
-                    if (terminalSymbols > 1) {
+                if (NonTerminalSymbols > 1) {
+                    return false;
+                }
+            } else {
+                 for (GrammarSymbol symbol : rule.getRhsSymbols()) {
+                    if (!symbol.isTerminalSymbol()) {
+                        NonTerminalSymbols++;
+                    }
+                }
+                    if (NonTerminalSymbols > 0) {
                         return false;
                     }
-            } else {
                 return false;
             }
         }
