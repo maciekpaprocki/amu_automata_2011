@@ -1274,7 +1274,7 @@ public class TestAutomatonSpecification extends TestCase {
         assertEquals(spec4.maxWordLength(), 1);
     }
     // test metody tworzącej dla podanego automatu automat z dokładnie 1 stanem końcowym
-   /* public final void testMakeOneFinalStateAutomaton() {
+    public final void testMakeOneFinalStateAutomaton() {
         NaiveAutomatonSpecification spec1 = new NaiveAutomatonSpecification();
         State q0 = spec1.addState();
         State q1 = spec1.addState();
@@ -1282,15 +1282,17 @@ public class TestAutomatonSpecification extends TestCase {
         spec1.addTransition(q0, q1, new EpsilonTransitionLabel());
         spec1.addTransition(q1, q2, new EpsilonTransitionLabel());
         spec1.markAsInitial(q0);
-        
-        int g=0;
-        for (State someState : spec1.allStates()) {
-            g++;
+        spec1.markAsInitial(q1);
+        spec1.markAsInitial(q2);
+        //wykorzystanie makeOneFinalStateAutomaton
+        AutomatonSpecification spec = new makeOneFinalStateAutomaton();
+        for (State someState : spec.allStates()) {
+            
             if (spec1.isFinal(someState)) {
-                i=i+1;
+                i++;
             }
-        assertEquals(g,100);
+        assertEquals(i,1);
         
                 }
-                }*/    
+                } 
 }
