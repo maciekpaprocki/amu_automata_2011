@@ -1284,6 +1284,7 @@ public class TestAutomatonSpecification extends TestCase {
         spec1.markAsInitial(q0);
         spec1.markAsInitial(q1);
         spec1.markAsInitial(q2);
+        int i=0;
         //wykorzystanie makeOneFinalStateAutomaton
         AutomatonSpecification spec = new makeOneFinalStateAutomaton();
         for (State someState : spec.allStates()) {
