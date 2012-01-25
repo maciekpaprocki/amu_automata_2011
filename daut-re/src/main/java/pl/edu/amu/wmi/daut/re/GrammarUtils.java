@@ -65,7 +65,7 @@ public class GrammarUtils {
         return true;
     }
 
-    public static boolean isLeftLinear(Grammar g){
+public static boolean isLeftLinear(Grammar g){
         List<GrammarRule> rules = g.allRules();
         for (GrammarRule rule : rules) {
             if ((rule.getRhsFirstSymbol().isTerminalSymbol())) {
@@ -79,6 +79,7 @@ public class GrammarUtils {
                     return false;
                 }
             } else {
+                 int NonTerminalSymbols = 0;
                  for (GrammarSymbol symbol : rule.getRhsSymbols()) {
                     if (!symbol.isTerminalSymbol()) {
                         NonTerminalSymbols++;
@@ -87,10 +88,10 @@ public class GrammarUtils {
                     if (NonTerminalSymbols > 0) {
                         return false;
                     }
-                return false;
             }
         }
         return true;
     }
 }
+
 
